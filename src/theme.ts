@@ -228,7 +228,8 @@ export const useMode = () => {
   );
 
   const theme = useMemo<any>(() => {
-    createTheme(themeSettings(mode));
+    const themeConfig = themeSettings(mode);
+    return createTheme(themeConfig);
   }, [mode]);
 
   return [theme, colorMode];
