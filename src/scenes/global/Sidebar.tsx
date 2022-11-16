@@ -1,8 +1,13 @@
 import { FC } from "react";
 
 import { useState } from "react";
-import { Sidebar as ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Sidebar as ProSidebar,
+  Menu,
+  MenuItem,
+  useProSidebar,
+} from "react-pro-sidebar";
+import { Box, Icon, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 // import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
@@ -23,32 +28,48 @@ const Sidebar: FC = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const [selected, setSelected] = useState("Dashboard");
+  const { collapseSidebar, collapsed } = useProSidebar();
 
   return (
-    <Box
-      // overriding react-pro-sidebar/dist/css/styles.css styles
-      sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
-        },
-        "& .pro-menu-item.active": {
-          color: "#6870fa !important",
-        },
-      }}
+    <ProSidebar
+      backgroundColor={colors.primary[400]}
+      style={{ border: "none" }}
     >
+      {/* Logo & Menu Icon */}
+      <Menu>
+        <MenuItem
+          onClick={() => {
+            if (collapsed) {
+              collapseSidebar();
+            }
+          }}
+          icon={collapsed ? <MenuOutlinedIcon /> : undefined}
+          style={{
+            margin: "10px 0 20px 0",
+            color: colors.grey[100],
+            background: "transparent",
+          }}
+        >
+          {/* for opened sidebar */}
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            ml="15px"
+          >
+            <Typography variant="h4" color={colors.grey[100]}>
+              ADMINIS
+            </Typography>
+            <IconButton onClick={() => collapseSidebar()}>
+              <MenuOutlinedIcon />
+            </IconButton>
+          </Box>
+        </MenuItem>
+      </Menu>
+
       {/* User */}
-      {!isCollapsed && (
+      {!collapsed && (
         <Box mb="25px">
           <Box display="flex" justifyContent="center" alignItems="center">
             <img
@@ -74,7 +95,7 @@ const Sidebar: FC = () => {
           </Box>
         </Box>
       )}
-    </Box>
+    </ProSidebar>
   );
 };
 
