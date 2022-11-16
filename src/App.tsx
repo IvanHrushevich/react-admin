@@ -1,7 +1,20 @@
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { FC } from "react";
 
+import { ColorModeContext, useMode } from "./theme";
+
 const App: FC = () => {
-  return <div className="app">Hey</div>;
+  const [theme, colorMode] = useMode();
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <main className="content">Hey</main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
 };
 
 export default App;
