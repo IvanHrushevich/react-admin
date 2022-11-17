@@ -14,7 +14,7 @@ import TopBar from "./scenes/global/TopBar";
 // import Invoices from "./scenes/invoices";
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
-// import Team from "./scenes/team";
+import Team from "./scenes/team";
 // import Calendar from "./scenes/calendar";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -32,7 +32,7 @@ const App: FC = () => {
               <TopBar />
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                {/* <Route path="/team" element={<Team />} /> */}
+                <Route path="/team" element={<Team />} />
                 {/* <Route path="/contacts" element={<Contacts />} /> */}
                 {/* <Route path="/invoices" element={<Invoices />} /> */}
                 {/* <Route path="/form" element={<Form />} /> */}
