@@ -33,13 +33,10 @@ interface ItemProps {
 }
 
 const Item: FC<ItemProps> = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   return (
     <MenuItem
       routerLink={<Link to={to} />}
       active={selected === title}
-      style={{ color: colors.grey[100] }}
       onClick={() => setSelected(title)}
       icon={icon}
     >
@@ -61,7 +58,14 @@ const Sidebar: FC = () => {
       style={{ border: "none" }}
     >
       {/* Logo & Menu Icon */}
-      <Menu>
+      <Menu
+        renderMenuItemStyles={({ level, disabled, active }) => ({
+          ".menu-anchor": {
+            backgroundColor: "transparent",
+            color: active ? colors.blueAccent[500] : colors.grey[100],
+          },
+        })}
+      >
         <MenuItem
           onClick={() => {
             if (collapsed) {
@@ -71,8 +75,6 @@ const Sidebar: FC = () => {
           icon={collapsed ? <MenuOutlinedIcon /> : undefined}
           style={{
             margin: "10px 0 20px 0",
-            color: colors.grey[100],
-            background: "transparent",
           }}
         >
           {/* for opened sidebar */}
