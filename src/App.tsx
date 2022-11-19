@@ -8,7 +8,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import TopBar from "./scenes/global/TopBar";
 // import Bar from "./scenes/bar";
 import Contacts from "./scenes/contacts";
-// import FAQ from "./scenes/faq";
+import FAQ from "./scenes/faq";
 import Form from "./scenes/form";
 // import Geography from "./scenes/geography";
 import Invoices from "./scenes/invoices";
@@ -39,7 +39,7 @@ const App: FC = () => {
                 {/* <Route path="/bar" element={<Bar />} /> */}
                 {/* <Route path="/pie" element={<Pie />} /> */}
                 {/* <Route path="/line" element={<Line />} /> */}
-                {/* <Route path="/faq" element={<FAQ />} /> */}
+                <Route path="/faq" element={<FAQ />} />
                 <Route path="/calendar" element={<Calendar />} />
                 {/* <Route path="/geography" element={<Geography />} /> */}
               </Routes>
