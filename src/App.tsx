@@ -12,7 +12,7 @@ import FAQ from "./scenes/faq";
 import Form from "./scenes/form";
 // import Geography from "./scenes/geography";
 import Invoices from "./scenes/invoices";
-// import Line from "./scenes/line";
+import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import Team from "./scenes/team";
 import Calendar from "./scenes/calendar";
@@ -38,7 +38,7 @@ const App: FC = () => {
                 <Route path="/form" element={<Form />} />
                 <Route path="/bar" element={<Bar />} />
                 <Route path="/pie" element={<Pie />} />
-                {/* <Route path="/line" element={<Line />} /> */}
+                <Route path="/line" element={<Line />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/calendar" element={<Calendar />} />
                 {/* <Route path="/geography" element={<Geography />} /> */}
