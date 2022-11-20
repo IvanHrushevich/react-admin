@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
 import TopBar from "./scenes/global/TopBar";
-// import Bar from "./scenes/bar";
+import Bar from "./scenes/bar";
 import Contacts from "./scenes/contacts";
 import FAQ from "./scenes/faq";
 import Form from "./scenes/form";
@@ -36,7 +36,7 @@ const App: FC = () => {
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/invoices" element={<Invoices />} />
                 <Route path="/form" element={<Form />} />
-                {/* <Route path="/bar" element={<Bar />} /> */}
+                <Route path="/bar" element={<Bar />} />
                 {/* <Route path="/pie" element={<Pie />} /> */}
                 {/* <Route path="/line" element={<Line />} /> */}
                 <Route path="/faq" element={<FAQ />} />
