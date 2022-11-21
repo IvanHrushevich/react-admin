@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 
 import { tokens } from "../theme";
 import ProgressCircle from "./ProgressCircle";
@@ -7,9 +7,9 @@ import ProgressCircle from "./ProgressCircle";
 const StatBox: FC<{
   title: string;
   subtitle: string;
-  icon: any;
+  icon: ReactElement;
   progress: number;
-  increase: number;
+  increase: string;
 }> = ({ title, subtitle, icon, progress, increase }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -31,6 +31,7 @@ const StatBox: FC<{
           <ProgressCircle progress={progress} />
         </Box>
       </Box>
+
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: colors.greenAccent[500] }}>
           {subtitle}
