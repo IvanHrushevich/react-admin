@@ -4,7 +4,7 @@ import { FC } from "react";
 import Header from "../../components/Header";
 import PieChart from "../../components/PieChart";
 
-const Bar: FC = () => {
+const Pie: FC = () => {
   return (
     <Box m="20px">
       <Header title="Pie Chart" subtitle="Simple Pie Chart" />
@@ -15,4 +15,4 @@ const Bar: FC = () => {
   );
 };
 
-export default Bar;
+export default Pie;
